@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    h1{
+      text-align: center;
+    }
+    #calculator{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .content{
+      width: 300px;
+      height: 350px;
+      background-color: azure;
+      display: flex;
+      padding: 2rem;
+      justify-content: center;
+      flex-direction: column;
+      margin: auto;
+    }
+    .input{
+      padding: .5rem;
+    }
+    input{
+      padding: .7rem;
+      width: 250px;
+    }
+    #operator{
+      padding: .7rem;
+      width: 250px;
+    }
+    
+  </style>
+  </head>
+<body>
+  
+         <div id="calculator">
+            <div class="content">
+                <h1>Calculator</h1>
+                <div class="input">
+
+                    <input type="number" id="number1" placeholder="Enter first number"><br>
+                    <input type="number" id="number2" placeholder="Enter second number"><br>
+
+                    <select id="operator">
+                     
+                      <option value="">Select Any Operation</option>
+                        <option value="+">Addition</option>
+                        <option value="-">Subtraction</option>
+                        <option value="*">Multiplication</option>
+                        <option value="/">Division</option>
+                    </select><br>
+                      
+                   
+                     
+                </div>
+                <input type="text" id="result"   placeholder="result"> 
+
+                <button type="button" id="btn">Click</button>
+
+            </div>
+        </div> 
+
+
+
+        
+   
+  
+  <script >
+    const operatorSelect = document.getElementById('operator');
+    const number1Input = document.getElementById('number1');
+    const number2Input = document.getElementById('number2');
+    const calculateButton = document.getElementById('calculate');
+    const resultDisplay = document.getElementById('result');
+    const btn = document.getElementById('btn');
+    btn.addEventListener('click',()=>{
+  const number1 = parseFloat(number1Input.value);
+  const number2 = parseFloat(number2Input.value);
+  const operator = operatorSelect.value;
+
+  let result;
+
+  switch (operator) {
+    case '+':
+      result = number1 + number2;
+      break;
+    case '-':
+      result = number1 - number2;
+      break;
+    case '*':
+      result = number1 * number2;
+      break;
+    case '/':
+      if (number2 == 0) {
+        alert('Division by zero is not allowed');
+        result="";
+      } else {
+        result = number1 / number2;
+      }
+      break;
+    default:
+      result = 'Invalid operator';
+  }
+
+  resultDisplay.value = result;
+});
+
+  </script> 
+</body>
+</html>
